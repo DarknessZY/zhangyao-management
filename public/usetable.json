@@ -1,0 +1,29 @@
+{
+	"code": 200,
+	"data":{
+		"pageNum":"1",
+		"pageSize": "10",
+		"total": "3",
+		"datalist": [
+		{
+			"username": "张耀",
+			"age": "22",
+            "phone":"18163189835",
+			"hobby": "棋牌类游戏"
+		},
+		{
+			"username": "zy",
+			"age": "22",
+            "phone":"18163189835",
+			"hobby": "棋牌类游戏"
+		},
+		{
+			"username": "zyao",
+			"age": "22",
+            "phone":"18163189835",
+			"hobby": "棋牌类游戏"
+		}	
+	]
+	},
+	"msg": "成功"
+}

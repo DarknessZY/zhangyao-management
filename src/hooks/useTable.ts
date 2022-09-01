@@ -3,13 +3,13 @@ import { reactive, computed, onMounted, toRefs } from "vue";
 
 /**
  * @description table 页面操作方法封装
- * @param {Function} api 获取表格数据 api 方法(必传)
+ * @param {Function} requestApi 获取表格数据 requestApi 方法(必传)
  * @param {Object} initParam 获取数据初始化参数(非必传，默认为{})
  * @param {Boolean} isPageable 是否有分页(非必传，默认为true)
  * @param {Function} dataCallBack 对后台返回的数据进行处理的方法(非必传)
  * */
 export const useTable = (
-	api: (params: any) => Promise<any>,
+	requestApi: (params: any) => Promise<any>,
 	initParam: object = {},
 	isPageable: boolean = true,
 	dataCallBack?: (data: any) => any
@@ -62,11 +62,13 @@ export const useTable = (
 		try {
 			// 先把初始化参数和分页参数放到总参数里面
 			Object.assign(state.totalParam, initParam, isPageable ? pageParam.value : {});
-			let { data } = await api(state.totalParam);
+			let { data } = await requestApi(state.totalParam);
 			dataCallBack && (data = dataCallBack(data));
 			state.tableData = isPageable ? data.datalist : data;
 			// 解构后台返回的分页数据 (如果有分页更新分页信息)
 			const { pageNum, pageSize, total } = data;
+			console.log('我是数据',state.tableData);
+			
 			isPageable && updatePageable({ pageNum, pageSize, total });
 		} catch (error) {
 			console.log(error);

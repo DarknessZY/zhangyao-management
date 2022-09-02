@@ -159,6 +159,14 @@ tableColumns.value.forEach(async item => {
 		item.enum = data;
 	}
 });
+// 过滤需要搜索的配置项
+const searchColumns = tableColumns.value.filter(item => item.search);
+// 设置搜索表单的默认值
+searchColumns.forEach(column => {
+	if (column.searchInitParam !== undefined && column.searchInitParam !== null) {
+		searchInitParam.value[column.prop!] = column.searchInitParam;
+	}
+});
 // 暴露给父组件的参数和方法
 defineExpose({ searchParam, refresh: getTableList });
 </script>

@@ -32,9 +32,9 @@ const options:Table._options = {
 const columns:Partial<Table.ColumnProps>[] = [
     { type: "selection", width: 80, fixed: "left"},
     { type: "index", label: "序号", width: 80 },
-    {prop:'username',label:'姓名',align: "center"},
-    {prop:'age',label:'年龄',align: "center"},
-    {prop:'phone',label:'手机号',align: "center"},
+    {prop:'username',label:'姓名',align: "center",search: true,},
+    {prop:'age',label:'年龄',align: "center",search: true,},
+    {prop:'phone',label:'手机号',align: "center",search: true,},
     {prop:'hobby',label:'爱好',align: "center"},
     {
         width:140,

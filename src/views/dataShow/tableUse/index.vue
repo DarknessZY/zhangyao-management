@@ -1,6 +1,10 @@
 <template>
     <div class="table-box">
-        <Mytable ref="myTable" :columns="columns" :requestApi="getUseTableList" :_options="options"></Mytable>
+        <Mytable ref="myTable" :columns="columns" :requestApi="getUseTableList" :_options="options">
+            <template #tableHeader="scope">
+                <el-button type="primary" :icon="CirclePlus" @click="openDrawer('新增')" >新增用户</el-button>
+            </template>
+        </Mytable>
     </div>
 </template>
 
@@ -9,6 +13,7 @@ import {ref,reactive, onMounted} from "vue"
 import Mytable from "@/components/Mytable/index.vue"
 import { getUseTableList } from "@/service/moudles/usetable/usetable"
 import { ElMessage,ElButton } from "element-plus"
+import { CirclePlus, Delete, EditPen, Download, Upload, View, Refresh } from "@element-plus/icons-vue";
 import { h } from 'vue'
 interface User {
     username:string,
@@ -25,7 +30,7 @@ const options:Table._options = {
         childrenName: "children"
 }
 const columns:Partial<Table.ColumnProps>[] = [
-    { type: "selection", width: 80, fixed: "left" },
+    { type: "selection", width: 80, fixed: "left"},
     { type: "index", label: "序号", width: 80 },
     {prop:'username',label:'姓名',align: "center"},
     {prop:'age',label:'年龄',align: "center"},
@@ -63,6 +68,9 @@ const handleRenderEdit = (row:User, index:number) => {
 }
 const handleRenderDelete = (row:User, index:number) => {
     ElMessage.success(`${row.username} ----- ${index}`)
+}
+const openDrawer =(title: string)=>{
+    ElMessage.success("我是新增")
 }
 </script>
 <style scoped lang="scss">

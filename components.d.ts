@@ -44,6 +44,8 @@ declare module '@vue/runtime-core' {
     Pagination: typeof import('./src/components/Mytable/components/Pagination.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    SearchForm: typeof import('./src/components/SearchForm/index.vue')['default']
+    SearchFormItem: typeof import('./src/components/SearchForm/components/SearchFormItem.vue')['default']
     SvgIcon: typeof import('./src/components/SvgIcon/index.vue')['default']
   }
   export interface ComponentCustomProperties {

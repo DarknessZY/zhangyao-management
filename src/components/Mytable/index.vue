@@ -1,8 +1,18 @@
 <template>
-    <div>
+    <!-- 查询表单 -->
+    <SearchForm :search="search" :reset="reset" :searchParam="searchParam" :columns="searchColumns"></SearchForm>
+    <div class="card table">
+        <!-- 表格头部 操作按钮 -->
+		<div class="table-header">
+			<div class="header-button-lf">
+				<slot name="tableHeader" :ids="selectedListIds" :isSelected="isSelected"></slot>
+			</div>
+			<div class="header-button-ri" >
+				<el-button :icon="Refresh" circle @click="getTableList"> </el-button>
+			</div>
+		</div>
         <!--使用 v-bind 属性透传 -->
         <el-table
-            height = "575"
             :data="tableData"
             v-bind="_options"
             @selection-change="selectionChange"
@@ -91,14 +101,15 @@
 </template>
 
 <script setup lang="ts">
-import { ComputedRef, computed ,watch } from 'vue'
+import { ComputedRef, computed ,watch ,ref} from 'vue'
 import { useTable } from '@/hooks/useTable'
 import { useSelection } from "@/hooks/useSelection";
 import dayjs from 'dayjs' // 日期格式化，需自行下载此依赖 
 import Expand from './components/Expand' //  默认使用的tsx形式的组件
 import { Refresh, Operation, Search } from "@element-plus/icons-vue";
 import { filterEnum, formatValue } from "@/utils/util";
-interface ProTableProps {
+import  SearchForm from '@/components/SearchForm/index.vue'
+interface MyTableProps {
 	columns: Partial<Table.ColumnProps>[]; // 列配置项
 	// requestApi: (params: any) => Promise<any>; // 请求表格数据的api ==> 必传
     requestApi:any
@@ -106,7 +117,7 @@ interface ProTableProps {
     initParam?: any; // 初始化请求参数 ==> 非必传（默认为{}）
     _options?:Table._options
 }
-const props = defineProps<ProTableProps>()
+const props = defineProps<MyTableProps>()
 //设置表格基本配置的默认值，如果传入的自定义的配置则合并option配置项
 const _options: ComputedRef<Table._options> = computed(() =>{
     const option = {
@@ -133,6 +144,21 @@ watch(
 	},
 	{ deep: true }
 );
+// 表格列配置项处理（添加 isShow 属性，控制显示/隐藏）
+const tableColumns = ref<Partial<Table.ColumnProps>[]>();
+tableColumns.value = props.columns.map(item => {
+	return {
+		...item,
+		isShow: item.isShow ?? true
+	};
+});
+// 如果当前 enum 为后台数据需要请求数据，则调用该请求接口，获取enum数据
+tableColumns.value.forEach(async item => {
+	if (item.enum && typeof item.enum === "function") {
+		const { data } = await item.enum();
+		item.enum = data;
+	}
+});
 // 暴露给父组件的参数和方法
 defineExpose({ searchParam, refresh: getTableList });
 </script>

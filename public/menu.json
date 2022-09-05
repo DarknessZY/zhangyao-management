@@ -25,12 +25,12 @@
 		},
 		{
 			"icon": "message-box",
-			"title": "组件学习",
+			"title": "组件管理",
 			"path": "/comp",
 			"children": [
 				{
-					"path": "/comp/pullText",
-					"title": "富文本编辑器",
+					"path": "/comp/swiper",
+					"title": "轮播图管理",
 					"icon": "menu"
 				},
 				{

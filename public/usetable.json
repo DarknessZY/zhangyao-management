@@ -1,10 +1,10 @@
 {
 	"code": 200,
 	"data":{
-		"pageNum":"1",
-		"pageSize": "10",
-		"total": "3",
-		"datalist": [
+		"pageNum":1,
+		"pageSize": 10,
+		"total": 12,
+		"list": [
 		{
 			"username": "张耀",
 			"age": "22",
@@ -22,7 +22,49 @@
 			"age": "22",
             "phone":"18163189835",
 			"hobby": "LOL"
-		}	
+		},
+		{
+			"username": "张耀",
+			"age": "22",
+            "phone":"18163189835",
+			"hobby": "炉石"
+		},
+		{
+			"username": "zy",
+			"age": "22",
+            "phone":"18163189835",
+			"hobby": "原神"
+		},
+		{
+			"username": "zyao",
+			"age": "22",
+            "phone":"18163189835",
+			"hobby": "LOL"
+		},	
+		{
+			"username": "张耀",
+			"age": "22",
+            "phone":"18163189835",
+			"hobby": "炉石"
+		},
+		{
+			"username": "zy",
+			"age": "22",
+            "phone":"18163189835",
+			"hobby": "原神"
+		},
+		{
+			"username": "zyao",
+			"age": "22",
+            "phone":"18163189835",
+			"hobby": "LOL"
+		},	
+		{
+			"username": "张耀",
+			"age": "22",
+            "phone":"18163189835",
+			"hobby": "炉石"
+		}
 	]
 	},
 	"msg": "成功"

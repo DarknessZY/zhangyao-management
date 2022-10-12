@@ -60,11 +60,15 @@ export const useTable = (
 	 * */
 	const getTableList = async () => {
 		try {
-			// 先把初始化参数和分页参数放到总参数里面
+			// 先把初始化参数和分页参数放到总参数里面		
 			Object.assign(state.totalParam, initParam, isPageable ? pageParam.value : {});
+			console.log('我是总参数',state.totalParam);
 			let { data } = await requestApi(state.totalParam);
+			console.log('我是谁',data);
+			
 			dataCallBack && (data = dataCallBack(data));
-			state.tableData = isPageable ? data.datalist : data;
+			// state.tableData = isPageable ? data.list : data;
+			state.tableData = data.list
 			// 解构后台返回的分页数据 (如果有分页更新分页信息)
 			const { pageNum, pageSize, total } = data;
 			console.log('我是后台返回的表格数据',state.tableData);

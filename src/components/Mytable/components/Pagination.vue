@@ -1,8 +1,8 @@
 <!-- //分页组件 -->
 <template>
 	<el-pagination
-		:currentPage="pageable.pageNum"
-		:page-size="pageable.pageSize"
+	v-model:currentPage="pageable.pageNum"
+	v-model:page-size="pageable.pageSize"
 		:page-sizes="[10, 25, 50, 100]"
 		:background="true"
 		layout="total, sizes, prev, pager, next, jumper"

@@ -67,7 +67,7 @@ export const useTable = (
 			state.tableData = isPageable ? data.datalist : data;
 			// 解构后台返回的分页数据 (如果有分页更新分页信息)
 			const { pageNum, pageSize, total } = data;
-			console.log('我是数据',state.tableData);
+			console.log('我是后台返回的表格数据',state.tableData);
 			
 			isPageable && updatePageable({ pageNum, pageSize, total });
 		} catch (error) {
@@ -84,6 +84,7 @@ export const useTable = (
 		// 处理查询参数，可以给查询参数加自定义前缀操作
 		let nowSearchParam: { [key: string]: any } = {};
 		// 防止手动清空输入框携带参数（这里可以自定义查询参数前缀）
+		console.log('我是查询参数',state.totalParam );
 		for (let key in state.searchParam) {
 			// * 某些情况下参数为 false/0 也应该携带参数
 			if (state.searchParam[key] || state.searchParam[key] === false || state.searchParam[key] === 0) {

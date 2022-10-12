@@ -65,8 +65,11 @@
 		margin-bottom: 10px;
 		.el-form {
 			max-width: 1260px;
+			display: flex;
 			.el-form-item {
 				margin-right: 5px;
+				display: flex;
+				align-items: flex-start;
 				.el-input,
 				.el-select,
 				.el-date-editor--timerange {

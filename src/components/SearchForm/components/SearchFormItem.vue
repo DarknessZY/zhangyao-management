@@ -4,7 +4,7 @@
 		<el-input
 			v-model="searchParam[item.prop!]"
 			v-bind="item.searchProps"
-			placeholder="请输入"
+			:placeholder="`请输入${item.label}`"
 			:clearable="clearable(item)"
 		></el-input>
 	</template>
@@ -14,7 +14,7 @@
 			v-model="searchParam[item.prop!]"
 			v-bind="item.searchProps"
 			:multiple="item.searchType == 'multipleSelect'"
-			placeholder="请选择"
+			:placeholder="`请选择${item.label}`"
 			:clearable="clearable(item)"
 		>
 			<el-option

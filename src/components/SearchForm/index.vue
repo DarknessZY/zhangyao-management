@@ -7,13 +7,23 @@
 				</el-form-item>
             </template>
         </el-form>
+		<div class="search-operation">
+				<el-button type="primary" :icon="Search" @click="search">搜索</el-button>
+				<el-button :icon="Refresh" @click="reset">重置</el-button>
+				<el-button type="primary" link class="search-isOpen" @click="searchShow = !searchShow" v-if="columns.length > maxLength">
+					{{ searchShow ? "合并" : "展开" }}
+					<el-icon class="el-icon--right">
+						<component :is="searchShow ? ArrowUp : ArrowDown"></component>
+					</el-icon>
+				</el-button>
+			</div>
     </div>
 </template>
 
 <script setup lang="ts">
 import { ref, computed, onMounted } from "vue";
 import SearchFormItem from "./components/SearchFormItem.vue";
-import { Delete, Search, ArrowDown, ArrowUp } from "@element-plus/icons-vue";
+import { Delete, Search, ArrowDown, ArrowUp, Refresh } from "@element-plus/icons-vue";
 
 interface MyTableProps {
 	columns: Partial<Table.ColumnProps>[]; // 搜索配置列

@@ -1,6 +1,7 @@
 <template>
     <!-- 查询表单 -->
     <SearchForm :search="search" :reset="reset" :searchParam="searchParam" :columns="searchColumns"></SearchForm>
+    <!-- 表格主体 -->
     <div class="card table">
         <!-- 表格头部 操作按钮 -->
 		<div class="table-header">
@@ -97,7 +98,10 @@
             </el-table-column>
             </template>
         </el-table>
-    </div>
+         <!-- 分页组件 -->
+		<Pagination v-if="_options?.pagination" :pageable="pageable" :handleSizeChange="handleSizeChange"
+			:handleCurrentChange="handleCurrentChange" />
+   </div>  
 </template>
 
 <script setup lang="ts">
@@ -109,6 +113,7 @@ import Expand from './components/Expand' //  默认使用的tsx形式的组件
 import { Refresh, Operation, Search } from "@element-plus/icons-vue";
 import { filterEnum, formatValue } from "@/utils/util";
 import  SearchForm from '@/components/SearchForm/index.vue'
+import Pagination from './components/Pagination.vue'
 interface MyTableProps {
 	columns: Partial<Table.ColumnProps>[]; // 列配置项
 	// requestApi: (params: any) => Promise<any>; // 请求表格数据的api ==> 必传

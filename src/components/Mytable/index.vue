@@ -10,6 +10,7 @@
 			</div>
 			<div class="header-button-ri" >
 				<el-button :icon="Refresh" circle @click="getTableList"> </el-button>
+                <el-button :icon="Printer" circle  v-print="'#printBox'"> </el-button>
 			</div>
 		</div>
         <!--使用 v-bind 属性透传 -->
@@ -18,6 +19,7 @@
             v-bind="_options"
             @selection-change="selectionChange"
 			:row-key="getRowKeys"
+            id="printBox"
         >
             <template v-for="item in columns" :key="item">
                 <!-- 复选框，序号列 -->
@@ -110,7 +112,7 @@ import { useTable } from '@/hooks/useTable'
 import { useSelection } from "@/hooks/useSelection";
 import dayjs from 'dayjs' // 日期格式化，需自行下载此依赖 
 import Expand from './components/Expand' //  默认使用的tsx形式的组件
-import { Refresh, Operation, Search } from "@element-plus/icons-vue";
+import { Refresh, Printer } from "@element-plus/icons-vue";
 import { filterEnum, formatValue } from "@/utils/util";
 import  SearchForm from '@/components/SearchForm/index.vue'
 import Pagination from './components/Pagination.vue'
@@ -176,6 +178,6 @@ searchColumns.forEach(column => {
 defineExpose({ searchParam, refresh: getTableList });
 </script>
 
-<style scoped>
-
+<style scoped lang="scss">
+@import "./index.scss";
 </style>

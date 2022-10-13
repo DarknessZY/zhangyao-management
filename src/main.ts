@@ -7,10 +7,10 @@ import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 import "element-plus/dist/index.css"
 //样式
 import './styles/index.scss'
-
+import print from 'vue3-print-nb'
 const app = createApp(App)
 // 注册element Icons组件
 Object.keys(ElementPlusIconsVue).forEach(key => {
 	app.component(key, ElementPlusIconsVue[key as keyof typeof ElementPlusIconsVue]);
 });
-app.use(router).use(createPinia()).component('svg-icon', SvgIcon).mount('#app')
+app.use(print).use(router).use(createPinia()).component('svg-icon', SvgIcon).mount('#app')

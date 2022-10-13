@@ -1,6 +1,6 @@
 <template>
     <!-- 查询表单 -->
-    <SearchForm :search="search" :reset="reset" :searchParam="searchParam" :columns="searchColumns"></SearchForm>
+    <SearchForm :search="search" :reset="reset" :searchParam="searchParam" :columns="searchColumns" v-show="isShowSearch"></SearchForm>
     <!-- 表格主体 -->
     <div class="card table">
         <!-- 表格头部 操作按钮 -->
@@ -11,6 +11,7 @@
 			<div class="header-button-ri" >
 				<el-button :icon="Refresh" circle @click="getTableList"> </el-button>
                 <el-button :icon="Printer" circle  v-print="'#printBox'"> </el-button>
+                <el-button :icon="isShowSearch? ArrowUp: ArrowDown" circle v-if="searchColumns.length" @click="showSearch"> </el-button>
 			</div>
 		</div>
         <!--使用 v-bind 属性透传 -->
@@ -112,7 +113,7 @@ import { useTable } from '@/hooks/useTable'
 import { useSelection } from "@/hooks/useSelection";
 import dayjs from 'dayjs' // 日期格式化，需自行下载此依赖 
 import Expand from './components/Expand' //  默认使用的tsx形式的组件
-import { Refresh, Printer } from "@element-plus/icons-vue";
+import { Refresh, Printer, ArrowUp, ArrowDown } from "@element-plus/icons-vue";
 import { filterEnum, formatValue } from "@/utils/util";
 import  SearchForm from '@/components/SearchForm/index.vue'
 import Pagination from './components/Pagination.vue'
@@ -176,6 +177,18 @@ searchColumns.forEach(column => {
 });
 // 暴露给父组件的参数和方法
 defineExpose({ searchParam, refresh: getTableList });
+//表单隐藏
+const isShowSearch = ref(true)
+const showSearch = () =>{
+    
+    if (isShowSearch.value) {
+
+        isShowSearch.value = false
+    } else {
+        isShowSearch.value = true
+    }
+
+}
 </script>
 
 <style scoped lang="scss">

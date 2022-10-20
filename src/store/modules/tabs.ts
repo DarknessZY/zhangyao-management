@@ -2,7 +2,6 @@ import { defineStore } from "pinia";
 import { TabPaneProps } from "element-plus";
 import { TabsState } from "../interface";
 import { HOME_URL, TABS_BLACK_LIST } from "@/config/config";
-import piniaPersistConfig from "@/config/piniaPersist";
 import router from "@/router/index";
 
 // TabsStore
@@ -70,5 +69,7 @@ export const TabsStore = defineStore({
 			this.tabsMenuValue = HOME_URL;
 		}
 	},
-	persist: piniaPersistConfig("TabsState")
+	persist: {
+		enabled: true , // 这个配置代表存储生效，而且是整个store都存储
+	}
 });

@@ -1,6 +1,5 @@
 import { defineStore } from "pinia";
 import { MenuState } from "../interface";
-import piniaPersistConfig from "@/config/piniaPersist";
 
 // MenuStore
 export const MenuStore = defineStore({
@@ -20,5 +19,7 @@ export const MenuStore = defineStore({
 			this.menuList = menuList;
 		}
 	},
-	persist: piniaPersistConfig("MenuState")
+	persist: {
+		enabled: true , // 这个配置代表存储生效，而且是整个store都存储
+	}
 });

@@ -1,6 +1,5 @@
 import { defineStore } from "pinia";
 import { AuthState } from "../interface";
-import piniaPersistConfig from "@/config/piniaPersist";
 
 export const AuthStore = defineStore({
     id: "AuthState",
@@ -30,5 +29,7 @@ export const AuthStore = defineStore({
 			this.authRouter = dynamicRouter;
 		}
 	},
-	persist: piniaPersistConfig("AuthState")
+	persist: {
+		enabled: true , // 这个配置代表存储生效，而且是整个store都存储
+	}
 })

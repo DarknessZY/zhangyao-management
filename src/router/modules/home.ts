@@ -2,7 +2,7 @@ import { RouteRecordRaw } from "vue-router";
 // 首页模块
 const homeRouter: Array<RouteRecordRaw> = [
 	{
-		path: "/",
+		path: "/home",
 		component:  () => import("@/layout/index.vue"),
 		redirect: "/home/index",
 		children: [

@@ -1,0 +1,10 @@
+{
+	"code": 200,
+	"data":{
+        "token": "123456",
+		"userInfo": {
+			"role":"user"
+		}
+	},
+	"msg": "成功"
+}

@@ -41,7 +41,6 @@ const menuStore = MenuStore();
 const authStore = AuthStore();
 // 菜单加载 loading
 const loading = ref(false);
-
 onMounted(async () => {
 	// 获取菜单列表
 	loading.value = true;
@@ -49,9 +48,9 @@ onMounted(async () => {
 		const res = await getMenuList();
 		if (!res.data) return;
 		// 把路由菜单处理成一维数组（存储到 pinia 中）
-		const dynamicRouter = handleRouter(res.data);
+		const dynamicRouter = handleRouter(res?.data);
 		authStore.setAuthRouter(dynamicRouter);
-		menuStore.setMenuList(res.data);
+		menuStore.setMenuList(res?.data);
 	} finally {
 		loading.value = false;
 	}

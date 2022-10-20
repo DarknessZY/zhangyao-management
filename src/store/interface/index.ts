@@ -1,3 +1,8 @@
+/* token，userInfo数据状态管理 */
+export interface GlobalState {
+	token: string;
+	userInfo: any;
+}
 /* MenuState 菜单状态管理*/
 export interface MenuState {
 	isCollapse: boolean;

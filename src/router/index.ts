@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
-const Layout = () => import('@/layout/index.vue')
-
+import { GlobalStore } from "@/store/index";
+import { MenuStore } from "@/store/modules/menu";
 // * 导入所有router
 // const metaRouters = import.meta.globEager("./modules/*.ts");
 const metaRouters:any =import.meta.glob('./modules/*.ts', { eager: true })
@@ -27,6 +27,21 @@ console.log('我是路由表',routerArray);
  * @param meta.key	==> 路由key,用来匹配按钮权限
  * */
 const routes: RouteRecordRaw[] = [
+  {
+    path: '/',
+    redirect: '/login',
+  },
+  {
+    path: '/login',
+    name: 'Login',
+    component: () => import('@/views/login/login.vue'),
+    meta: { title: '登录', icon: '', parent: { name: '' } }
+  },
+  {
+    path: '/layout',
+    name: 'Layout',
+    component: () => import('@/layout/index.vue'),
+  },
   ...routerArray,
 ]
 
@@ -38,4 +53,21 @@ const router = createRouter({
 	scrollBehavior: () => ({ left: 0, top: 0 })
 })
 
+router.beforeEach((to, from, next) => {
+  const globalStore = GlobalStore()
+  const menuStore = MenuStore()
+  const token = globalStore.token
+  // const token = sessionStorage.getItem("token")
+  const menuList = menuStore.menuList
+  if (to.path == '/login') {
+    console.log("login!!!!!!!!!!!")
+    next()
+  } else if (!token) {
+    console.log('!token');
+  } else if (to.path == '/' || to.path == '') {
+    next({path: '/'})
+  } else if (menuList) {
+    next()
+  }
+})
 export default router

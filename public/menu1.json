@@ -4,7 +4,18 @@
 		{
 			"icon": "home-filled",
 			"title": "首页",
-			"path": "/home/index"
+			"path": "/home",
+			"children": [
+				{
+					"path": "/home/index",
+					"meta": {
+						"keepAlive": true,
+						"requiresAuth": false,
+						"title": "首页",
+						"key": "home"
+					}
+				}
+			]
 		},
 		{
 			"icon": "histogram",

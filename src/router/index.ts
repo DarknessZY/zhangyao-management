@@ -37,11 +37,11 @@ const routes: RouteRecordRaw[] = [
     component: () => import('@/views/login/login.vue'),
     meta: { title: '登录', icon: '', parent: { name: '' } }
   },
-  {
-    path: '/layout',
-    name: 'Layout',
-    component: () => import('@/layout/index.vue'),
-  },
+  // {
+  //   path: '/layout',
+  //   name: 'Layout',
+  //   component: () => import('@/layout/index.vue'),
+  // },
   ...routerArray,
 ]
 

@@ -78,10 +78,9 @@ const goHome = async() => {
    console.log('登录res',res.data);
    if(res.data) {
     globalStore.token = res.data.token
-    sessionStorage.setItem("token", res.data.token);
     globalStore.userInfo = res.data.userInfo
     router.push({
-     path: "/layout",
+     path: "/home/index",
      });
    }
 

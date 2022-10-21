@@ -32,25 +32,37 @@ import Logo from "./components/logo.vue";
 import SubItem from "./components/subItem.vue";
 import { MenuStore } from "@/store/modules/menu";
 import { AuthStore } from "@/store/modules/auth";
-import { getMenuList } from "@/service/moudles/login/login";
+import { GlobalStore } from "@/store/index";
+import { getMenuList, getMenuList1 } from "@/service/moudles/login/login";
 import { useRoute } from "vue-router";
 import { handleRouter } from "@/utils/util";
 import { loadingSvg } from "@/utils/svg";//自定义加载图标
 const route = useRoute();
 const menuStore = MenuStore();
 const authStore = AuthStore();
+const globalStore = GlobalStore();
 // 菜单加载 loading
 const loading = ref(false);
 onMounted(async () => {
 	// 获取菜单列表
 	loading.value = true;
 	try {
-		const res = await getMenuList();
-		if (!res.data) return;
-		// 把路由菜单处理成一维数组（存储到 pinia 中）
-		const dynamicRouter = handleRouter(res?.data);
-		authStore.setAuthRouter(dynamicRouter);
-		menuStore.setMenuList(res?.data);
+		if (globalStore.userInfo.role == 'admin') {
+			const res = await getMenuList();
+			if (!res.data) return;
+			// 把路由菜单处理成一维数组（存储到 pinia 中）
+			const dynamicRouter = handleRouter(res?.data);
+			authStore.setAuthRouter(dynamicRouter);
+			menuStore.setMenuList(res?.data);
+		} else {
+			const res = await getMenuList1();
+			if (!res.data) return;
+			// 把路由菜单处理成一维数组（存储到 pinia 中）
+			const dynamicRouter = handleRouter(res?.data);
+			authStore.setAuthRouter(dynamicRouter);
+			menuStore.setMenuList(res?.data);
+		}
+		
 	} finally {
 		loading.value = false;
 	}

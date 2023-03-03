@@ -35,7 +35,10 @@ const columns:Partial<Table.ColumnProps>[] = [
     {prop:'username',label:'姓名',align: "center",search: true,},
     {prop:'age',label:'年龄',align: "center",search: true,},
     {prop:'phone',label:'手机号',align: "center",search: true,},
-    {prop:'hobby',label:'爱好',align: "center"},
+    {prop:'hobby',label:'爱好',align: "center",search: true,},
+    {prop:'hobby',label:'54645',align: "center",search: true,},
+    {prop:'hobby',label:'45645',align: "center",search: true,},
+    {prop:'hobby',label:'45654',align: "center",search: true,},
     {
         width:140,
         label:'操作',

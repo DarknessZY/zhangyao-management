@@ -47,7 +47,7 @@ const router = useRouter();
 watch(
 	() => route.path,
 	() => {
-		let params = {
+		let params:any = {
 			title: route.meta.title as string,
 			path: route.path,
 			close: true

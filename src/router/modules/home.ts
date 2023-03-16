@@ -1,6 +1,6 @@
 import { RouteRecordRaw } from "vue-router";
 // 首页模块
-const homeRouter: Array<RouteRecordRaw> = [
+const homeRouter= [
 	{
 		path: "/home",
 		component:  () => import("@/layout/index.vue"),

@@ -88,15 +88,14 @@
 </template>
 
 <script setup lang="ts" name="searchFormItem">
-import { ColumnProps } from "@/components/ProTable/interface";
 
 interface SearchFormItem {
-	item: Partial<ColumnProps>; // 具体每一个搜索项的配置
+	item: Partial<Table.ColumnProps>; // 具体每一个搜索项的配置
 	searchParam: any; // 搜索参数
 }
 
 // 是否有清除按钮 (当搜索项有默认值时，清除按钮不显示)
-const clearable = (item: Partial<ColumnProps>) => {
+const clearable = (item: Partial<Table.ColumnProps>) => {
 	return item.searchInitParam == null || item.searchInitParam == undefined;
 };
 

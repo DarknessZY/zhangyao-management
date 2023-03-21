@@ -55,7 +55,7 @@ const columns:Partial<Table.ColumnProps>[] = [
                     ),
                     h(
                         ElButton,
-                        {
+                        {   
                             type: 'danger',
                             size: 'small',
                             onClick: () => handleRenderDelete(row, index)

@@ -48,14 +48,14 @@ onMounted(async () => {
 	loading.value = true;
 	try {
 		if (globalStore.userInfo.role == 'admin') {
-			const res = await getMenuList();
+			const res:any = await getMenuList();
 			if (!res.data) return;
 			// 把路由菜单处理成一维数组（存储到 pinia 中）
 			const dynamicRouter = handleRouter(res?.data);
 			authStore.setAuthRouter(dynamicRouter);
 			menuStore.setMenuList(res?.data);
 		} else {
-			const res = await getMenuList1();
+			const res:any= await getMenuList1();
 			if (!res.data) return;
 			// 把路由菜单处理成一维数组（存储到 pinia 中）
 			const dynamicRouter = handleRouter(res?.data);

@@ -183,3 +183,25 @@ export function filterEnum(callValue: any, enumData: any, searchProps?: { [key: 
 	if (type == "tag") return filterData?.tagType ? filterData.tagType : "";
 	return filterData ? filterData[label] : "--";
 }
+
+
+export const isVoid = (value: string | any[] | null | undefined) => {
+	return value === undefined || value === null || value === '' || (Array.isArray(value) && value.length === 0)
+}
+/**
+ * @description cleanObject
+ * @return object
+ * */
+export const cleanObject = (object: any) => {
+	if (!object) {
+		return {}
+	}
+	const result = { ...object }
+	Object.keys(result).forEach(key => {
+		const value = result[key]
+		if (isVoid(value)) {
+			delete result[key]
+		}
+	})
+	return result
+}

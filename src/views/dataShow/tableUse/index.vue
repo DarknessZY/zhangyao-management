@@ -1,6 +1,11 @@
 <template>
     <div class="table-box">
         <Mytable ref="myTable" :columns="columns" :requestApi="getUseTableList" :_options="options">
+            <template v-slot:exportsO>
+				<slot name="exportsO">
+					<ElButton type="primary" :icon="Download" @click="handleClickExportBtn">导出</ElButton>
+				</slot>
+			</template>
             <template #tableHeader="scope">
                 <el-button type="primary" :icon="CirclePlus" @click="openDrawer('新增')" >新增用户</el-button>
             </template>
@@ -13,7 +18,7 @@ import {ref,reactive, onMounted} from "vue"
 import Mytable from "@/components/Mytable/index.vue"
 import { getUseTableList } from "@/service/moudles/usetable/usetable"
 import { ElMessage,ElButton } from "element-plus"
-import { CirclePlus, Delete, EditPen, Download, Upload, View, Refresh } from "@element-plus/icons-vue";
+import { CirclePlus,Download } from "@element-plus/icons-vue";
 import { h } from 'vue'
 interface User {
     username:string,
@@ -30,15 +35,15 @@ const options:Table._options = {
         childrenName: "children"
 }
 const columns:Partial<Table.ColumnProps>[] = [
-    { type: "selection", width: 80, fixed: "left"},
-    { type: "index", label: "序号", width: 80 },
-    {prop:'username',label:'姓名',align: "center",search: true,},
-    {prop:'age',label:'年龄',align: "center",search: true,},
-    {prop:'phone',label:'手机号',align: "center",search: true,},
-    {prop:'hobby',label:'爱好',align: "center",search: true,},
-    {prop:'hobby',label:'54645',align: "center",search: true,},
-    {prop:'hobby',label:'45645',align: "center",search: true,},
-    {prop:'hobby',label:'45654',align: "center",search: true,},
+    { type: "selection", width: 80, fixed: "left",isTable:true,},
+    { type: "index", label: "序号", width: 80,isTable:true, },
+    {prop:'username',label:'姓名',align: "center",search: true,isTable:true,},
+    {prop:'age',label:'年龄',align: "center",search: true,isTable:true,},
+    {prop:'phone',label:'手机号',align: "center",search: true,isTable:true,},
+    {prop:'hobby',label:'爱好',align: "center",search: true,isTable:true,},
+    {prop:'hobby',label:'54645',align: "center",isTable:false,},
+    {prop:'hobby',label:'45645',align: "center",isTable:false,},
+    {prop:'hobby',label:'45654',align: "center",isTable:false,},
     {
         width:140,
         label:'操作',
@@ -74,6 +79,9 @@ const handleRenderDelete = (row:User, index:number) => {
 }
 const openDrawer =(title: string)=>{
     ElMessage.success("我是新增")
+}
+const handleClickExportBtn = () => {
+    console.log('我是导出')
 }
 </script>
 <style scoped lang="scss">

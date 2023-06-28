@@ -1,13 +1,7 @@
 <template>
 	<div class="card table-search">
-		<el-form
-			ref="formRef"
-			:model="searchParam"
-			:inline="true"
-			:label-width="labelWidth ?? '100px'"
-			:rules="formRules"
-			:validate-on-rule-change="false"
-		>
+		<el-form ref="formRef" :model="searchParam" :inline="true" :label-width="labelWidth ?? '100px'" :rules="formRules"
+			:validate-on-rule-change="false">
 			<template v-for="(item, index) in getSearchList" :key="index">
 				<el-form-item v-if="!item.label" :prop="item.prop" class="noMargin"></el-form-item>
 				<el-form-item v-else :label="`${item.label} :`" :prop="item.prop">
@@ -20,7 +14,8 @@
 				<el-button type="success" :icon="Search" @click="search">查询</el-button>
 				<el-button :icon="Refresh" @click="reset">重置</el-button>
 				<slot name="exportsO"></slot>
-				<el-button type="primary" text class="search-isOpen" @click="searchShow = !searchShow" v-if="columns.length > maxLength">
+				<el-button type="primary" text class="search-isOpen" @click="searchShow = !searchShow"
+					v-if="columns.length > maxLength">
 					{{ searchShow ? '收起' : '展开' }}
 					<el-icon class="el-icon--right">
 						<component :is="searchShow ? ArrowUp : ArrowDown"></component>
@@ -63,7 +58,7 @@ const formRules = computed(() => {
 	return rules
 })
 //展开的表单的最大数
-const maxLength = ref<number>(4)
+const maxLength = ref<number>(3)
 // 是否展开搜索项
 const searchShow = ref(false)
 // 根据是否展开配置搜索项长度

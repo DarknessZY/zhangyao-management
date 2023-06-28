@@ -1,9 +1,5 @@
-//公共样式
-@import './app.scss';
-//动画过渡样式
-@import './transition.scss';
-//elememt样式
-@import './element.scss';
-//我的el样式
-@import './myel.scss'
+// 我的el样式
+@import './myel.scss';
 
+// 常用样式
+@import './app.scss'

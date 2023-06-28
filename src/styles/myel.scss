@@ -1,18 +1,8 @@
 // * 设置 notification/message 层级在 loading 之上
 .el-message,
-.el-notification {
+.el-notification,
+.el-loading-mask {
 	z-index: 99999 !important;
-}
-
-// * card 卡片样式
-.card {
-	box-sizing: border-box;
-	padding: 20px;
-	overflow-x: hidden;
-	background-color: var(--el-fill-color-blank);
-	border: 1px solid var(--el-border-color-light);
-	border-radius: 4px;
-	box-shadow: 0 0 12px rgb(0 0 0 / 5%);
 }
 
 // * main-box (树型表格页面才会使用到)
@@ -61,17 +51,18 @@
 	// table-search 表格搜索样式
 	.table-search {
 		display: flex;
-		padding: 18px 18px 0;
+		justify-content: space-between;
+		padding: 10px 10px 0;
 		margin-bottom: 10px;
 		.el-form {
-			max-width: 1260px;
 			display: flex;
 			flex-wrap: wrap;
-
 			.el-form-item {
-				margin-right: 5px;
 				display: flex;
 				align-items: flex-start;
+
+				// width: 350px;
+				margin-right: 5px;
 				.el-input,
 				.el-select,
 				.el-date-editor--timerange {
@@ -79,7 +70,7 @@
 				}
 				.el-date-editor--datetimerange,
 				.el-date-editor--daterange {
-					width: 400px;
+					width: 210px;
 				}
 
 				// 去除时间选择器上下 padding
@@ -98,26 +89,33 @@
 			}
 		}
 		.search-operation {
-			margin-left: 15px;
+			display: flex;
+			align-items: end;
+			padding-bottom: 5px;
+			margin-bottom: 10px;
 			white-space: nowrap;
 			.search-isOpen {
-				margin-left: 20px;
+				margin-left: 6px;
 			}
 		}
 	}
 
 	// 表格 header 样式
 	.table-header {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding-bottom: 15px;
 		.header-button-lf {
-			float: left;
+			// float: left;
 			.el-button {
-				margin-bottom: 15px;
+				// margin-bottom: 15px;
 			}
 		}
 		.header-button-ri {
-			float: right;
+			// float: right;
 			.el-button {
-				margin-bottom: 15px;
+				// margin-bottom: 15px;
 			}
 		}
 	}
@@ -130,11 +128,21 @@
 		.el-table__body td {
 			text-align: center;
 		}
+		.text-left {
+			text-align: left !important;
+			.el-button + .el-button {
+				margin-left: 4px;
+			}
+			.el-button--small {
+				margin: 2px 4px;
+			}
+		}
 		.el-table__header th {
 			height: 45px;
 			font-size: 15px;
 			font-weight: bold;
 			color: #252525;
+			text-align: center !important;
 			background: #fafafa;
 		}
 		.el-table__row {
@@ -144,6 +152,11 @@
 		// 设置 el-table 中 header 文字不换行
 		.el-table__header .el-table__cell > .cell {
 			white-space: nowrap;
+		}
+		.wrapHeader {
+			.cell {
+				white-space: pre-wrap !important;
+			}
 		}
 
 		// 解决表格数据为空时样式不居中问题(仅在element-plus中)
@@ -230,7 +243,24 @@
 		margin: 0;
 		border-bottom: 1px solid #f0f0f0;
 		.el-dialog__title {
-			font-size: 17px;
+			font-size: 16px;
 		}
+	}
+}
+.el-popover.el-popper,
+.el-popper {
+	min-width: 20px;
+	max-width: 300px;
+}
+.table-tooltip {
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 2;
+	overflow: hidden;
+}
+.dialog-title-custom {
+	padding: 5px 0;
+	span {
+		padding-right: 20px;
 	}
 }

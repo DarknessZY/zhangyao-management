@@ -28,3 +28,14 @@
         }
     }
 }
+
+::v-deep(.el-table.is-scrolling-left th.el-table-fixed-column--left) {
+	background: #fafafa;
+}
+.long-text {
+	-webkit-line-clamp: 2;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}

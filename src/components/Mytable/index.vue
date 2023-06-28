@@ -69,7 +69,20 @@
 				</el-table-column>
 				<!-- 普通列 -->
 				<el-table-column v-if="!item.type && !item.render" :label="item.label" :prop="item.prop" :width="item.width"
-					:min-width="item.minWidth" :align="item.align">
+					:min-width="item.minWidth" :align="item.align" :fixed="item.fixed" :class-name="item.class">
+					<!-- 普通列文字超出显示内容 -->
+					<template #default="scope" v-if="item.tooltip">
+						<el-popover effect="dark" trigger="hover" placement="top" width="auto">
+							<template #default>
+								<div>{{ scope.row[item.prop] }}</div>
+							</template>
+							<template #reference>
+								<div class="long-text">
+									{{ scope.row[item.prop] }}
+								</div>
+							</template>
+						</el-popover>
+					</template>
 				</el-table-column>
 			</template>
 		</el-table>

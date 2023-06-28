@@ -72,16 +72,9 @@
 					:min-width="item.minWidth" :align="item.align" :fixed="item.fixed" :class-name="item.class">
 					<!-- 普通列文字超出显示内容 -->
 					<template #default="scope" v-if="item.tooltip">
-						<el-popover effect="dark" trigger="hover" placement="top" width="auto">
-							<template #default>
-								<div>{{ scope.row[item.prop] }}</div>
-							</template>
-							<template #reference>
-								<div class="long-text">
-									{{ scope.row[item.prop] }}
-								</div>
-							</template>
-						</el-popover>
+						<el-tooltip class="box-item" effect="dark" :content="scope.row[item.prop]" placement="top-start" width="auto">
+							<div class="long-text">{{ scope.row[item.prop] }}</div>
+						</el-tooltip>
 					</template>
 				</el-table-column>
 			</template>

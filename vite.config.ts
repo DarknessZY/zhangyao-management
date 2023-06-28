@@ -15,7 +15,9 @@ export default defineConfig({
     vue(),
     vueJsx(),
     [svgBuilder('./src/assets/icons/svg/')],// 这里已经将src/icons/svg/下的svg全部导入，无需再单独导入
-    AutoImport({
+    AutoImport
+    ({
+      imports: ['vue', 'vue-router'],
       resolvers: [ElementPlusResolver()],
     }),
     Components({

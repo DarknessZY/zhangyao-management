@@ -14,7 +14,6 @@
 </template>
 
 <script setup lang="ts">
-import { ref, reactive, onMounted } from "vue"
 import Mytable from "@/components/Mytable/index.vue"
 import { getUseTableList } from "@/service/moudles/usetable/usetable"
 import { ElMessage, ElButton } from "element-plus"

@@ -17,6 +17,11 @@
 					"icon": "menu"
 				},
 				{
+					"path": "/dataShow/threeJsShow",
+					"title": "threeJS使用",
+					"icon": "menu"
+				},
+				{
 					"path": "/dataShow/tableUse",
 					"title": "表格使用以及封装",
 					"icon": "menu"

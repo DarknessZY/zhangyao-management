@@ -1,0 +1,116 @@
+@font-face {
+  font-family: "iconfont"; /* Project id 4025917 */
+  src: url('iconfont.woff2?t=1684303768278') format('woff2'),
+       url('iconfont.woff?t=1684303768278') format('woff'),
+       url('iconfont.ttf?t=1684303768278') format('truetype'),
+       url('iconfont.svg?t=1684303768278#iconfont') format('svg');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-shoukuan:before {
+  content: "\e66d";
+}
+
+.icon-huankuan:before {
+  content: "\e697";
+}
+
+.icon-zhifu:before {
+  content: "\e6be";
+}
+
+.icon-tixian1:before {
+  content: "\ec61";
+}
+
+.icon-huakou:before {
+  content: "\e75f";
+}
+
+.icon-walletDashbord:before {
+  content: "\e601";
+}
+
+.icon-credit:before {
+  content: "\e665";
+}
+
+.icon-submenu:before {
+  content: "\e65f";
+}
+
+.icon-category:before {
+  content: "\e660";
+}
+
+.icon-platform:before {
+  content: "\e661";
+}
+
+.icon-wallet:before {
+  content: "\e662";
+}
+
+.icon-brand2:before {
+  content: "\e663";
+}
+
+.icon-information:before {
+  content: "\e664";
+}
+
+.icon-system:before {
+  content: "\e653";
+}
+
+.icon-advertisement:before {
+  content: "\e654";
+}
+
+.icon-ground:before {
+  content: "\e655";
+}
+
+.icon-sale:before {
+  content: "\e656";
+}
+
+.icon-approval:before {
+  content: "\e657";
+}
+
+.icon-merchant:before {
+  content: "\e658";
+}
+
+.icon-brand:before {
+  content: "\e659";
+}
+
+.icon-order:before {
+  content: "\e65a";
+}
+
+.icon-karketing:before {
+  content: "\e65b";
+}
+
+.icon-user:before {
+  content: "\e65c";
+}
+
+.icon-main:before {
+  content: "\e65d";
+}
+
+.icon-deposit:before {
+  content: "\e65e";
+}
+

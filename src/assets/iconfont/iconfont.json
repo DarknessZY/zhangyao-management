@@ -1,0 +1,184 @@
+{
+  "id": "4025917",
+  "name": "enjoy-payment-management-front",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "小恒买单",
+  "glyphs": [
+    {
+      "icon_id": "4967688",
+      "name": "收款",
+      "font_class": "shoukuan",
+      "unicode": "e66d",
+      "unicode_decimal": 58989
+    },
+    {
+      "icon_id": "6337607",
+      "name": "还款",
+      "font_class": "huankuan",
+      "unicode": "e697",
+      "unicode_decimal": 59031
+    },
+    {
+      "icon_id": "11906579",
+      "name": "支付",
+      "font_class": "zhifu",
+      "unicode": "e6be",
+      "unicode_decimal": 59070
+    },
+    {
+      "icon_id": "23949504",
+      "name": "提现",
+      "font_class": "tixian1",
+      "unicode": "ec61",
+      "unicode_decimal": 60513
+    },
+    {
+      "icon_id": "32536396",
+      "name": "分期还款",
+      "font_class": "huakou",
+      "unicode": "e75f",
+      "unicode_decimal": 59231
+    },
+    {
+      "icon_id": "35535354",
+      "name": "walletDashbord",
+      "font_class": "walletDashbord",
+      "unicode": "e601",
+      "unicode_decimal": 58881
+    },
+    {
+      "icon_id": "35216925",
+      "name": "征信",
+      "font_class": "credit",
+      "unicode": "e665",
+      "unicode_decimal": 58981
+    },
+    {
+      "icon_id": "35169949",
+      "name": "submenu",
+      "font_class": "submenu",
+      "unicode": "e65f",
+      "unicode_decimal": 58975
+    },
+    {
+      "icon_id": "35169950",
+      "name": "category",
+      "font_class": "category",
+      "unicode": "e660",
+      "unicode_decimal": 58976
+    },
+    {
+      "icon_id": "35169951",
+      "name": "platform",
+      "font_class": "platform",
+      "unicode": "e661",
+      "unicode_decimal": 58977
+    },
+    {
+      "icon_id": "35169952",
+      "name": "wallet",
+      "font_class": "wallet",
+      "unicode": "e662",
+      "unicode_decimal": 58978
+    },
+    {
+      "icon_id": "35169953",
+      "name": "brand2",
+      "font_class": "brand2",
+      "unicode": "e663",
+      "unicode_decimal": 58979
+    },
+    {
+      "icon_id": "35169954",
+      "name": "information",
+      "font_class": "information",
+      "unicode": "e664",
+      "unicode_decimal": 58980
+    },
+    {
+      "icon_id": "35144202",
+      "name": "system",
+      "font_class": "system",
+      "unicode": "e653",
+      "unicode_decimal": 58963
+    },
+    {
+      "icon_id": "35163298",
+      "name": "advertisement",
+      "font_class": "advertisement",
+      "unicode": "e654",
+      "unicode_decimal": 58964
+    },
+    {
+      "icon_id": "35163302",
+      "name": "ground",
+      "font_class": "ground",
+      "unicode": "e655",
+      "unicode_decimal": 58965
+    },
+    {
+      "icon_id": "35163303",
+      "name": "sale",
+      "font_class": "sale",
+      "unicode": "e656",
+      "unicode_decimal": 58966
+    },
+    {
+      "icon_id": "35163304",
+      "name": "approval",
+      "font_class": "approval",
+      "unicode": "e657",
+      "unicode_decimal": 58967
+    },
+    {
+      "icon_id": "35163308",
+      "name": "merchant",
+      "font_class": "merchant",
+      "unicode": "e658",
+      "unicode_decimal": 58968
+    },
+    {
+      "icon_id": "35163312",
+      "name": "brand",
+      "font_class": "brand",
+      "unicode": "e659",
+      "unicode_decimal": 58969
+    },
+    {
+      "icon_id": "35163313",
+      "name": "order",
+      "font_class": "order",
+      "unicode": "e65a",
+      "unicode_decimal": 58970
+    },
+    {
+      "icon_id": "35163316",
+      "name": "marketing",
+      "font_class": "karketing",
+      "unicode": "e65b",
+      "unicode_decimal": 58971
+    },
+    {
+      "icon_id": "35163317",
+      "name": "user",
+      "font_class": "user",
+      "unicode": "e65c",
+      "unicode_decimal": 58972
+    },
+    {
+      "icon_id": "35163324",
+      "name": "main",
+      "font_class": "main",
+      "unicode": "e65d",
+      "unicode_decimal": 58973
+    },
+    {
+      "icon_id": "35163337",
+      "name": "deposit",
+      "font_class": "deposit",
+      "unicode": "e65e",
+      "unicode_decimal": 58974
+    }
+  ]
+}

@@ -5,6 +5,8 @@ import { createPinia } from "pinia"
 import piniaPersist from 'pinia-plugin-persist'
 import SvgIcon from './components/SvgIcon/index.vue'
 import * as ElementPlusIconsVue from '@element-plus/icons-vue'
+import '@/assets/iconfont/iconfont.js'
+import '@/assets/iconfont/iconfont.css'
 import "element-plus/dist/index.css"
 //样式
 import './styles/index.scss'

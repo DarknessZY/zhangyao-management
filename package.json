@@ -25,7 +25,8 @@
     "vue": "^3.2.37",
     "vue-router": "4",
     "vue3-print-nb": "^0.1.4",
-    "xlsx": "^0.18.5"
+    "xlsx": "^0.18.5",
+    "yarn": "^1.22.19"
   },
   "devDependencies": {
     "@types/nprogress": "^0.2.0",

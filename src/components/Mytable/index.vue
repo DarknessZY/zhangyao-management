@@ -77,6 +77,14 @@
 						</el-tooltip>
 					</template>
 				</el-table-column>
+				<!-- 操作列的插槽 -->
+				<el-table-column v-if="item.type == 'operation'" :prop="item.prop" :label="item.label" :width="item.width"
+					:min-width="item.minWidth" :sortable="item.sortable" :resizable="true" :fixed="item.fixed"
+					:class-name="item.class === 'left' ? 'text-left' : ''">
+					<template #default="scope">
+						<slot name="operation" v-bind="scope.row" v-bind:index="scope.$index"></slot>
+					</template>
+				</el-table-column>
 			</template>
 		</el-table>
 		<!-- 分页组件 -->

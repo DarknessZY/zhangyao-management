@@ -34,8 +34,8 @@
 			"path": "/comp",
 			"children": [
 				{
-					"path": "/comp/swiper",
-					"title": "轮播图管理",
+					"path": "/comp/puzzle",
+					"title": "拼图验证",
 					"icon": "menu"
 				},
 				{

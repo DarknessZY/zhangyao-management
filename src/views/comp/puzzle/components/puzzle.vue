@@ -110,7 +110,7 @@ const startX = ref<number>(0) // 鼠标按下时的X
 const newX = ref<number>(0) // 鼠标当前的偏移X
 const sliderBaseSize = ref<number>(contentInfo.smallWidth) // 滑块的大小和拼图大小最好一致
 const startWidth = ref<number>(sliderBaseSize.value) // 滑块默认在的位置
-const rangeSlider = ref(null) //滑块dom
+const rangeSlider = ref<any>(null) //滑块dom
 /** 计算滑块的位置*/
 const styleWidth = computed(() => {
   const w = startWidth.value + newX.value - startX.value
@@ -121,7 +121,7 @@ const styleWidth = computed(() => {
  * 鼠标按下准备拖动
  * @param event
  */
-const onRangeMouseDown = e => {
+const onRangeMouseDown = (e: any) => {
   mouseDown.value = true
   startWidth.value = rangeSlider.value.clientWidth
   newX.value = e.clientX || e.changedTouches[0].clientX
@@ -131,7 +131,7 @@ const onRangeMouseDown = e => {
  * 鼠标移动
  * @param event
  */
-const onRangeMouseMove = e => {
+const onRangeMouseMove = (e: any) => {
   if (mouseDown.value) {
     e.preventDefault()
     newX.value = e.clientX || e.changedTouches[0].clientX
@@ -149,7 +149,7 @@ const onRangeMouseUp = () => {
 /**
  * 验证结果
  */
-const timer1 = ref(null)
+const timer1 = ref<any>(null)
 const infoBoxShow = ref<boolean>(false)
 const infoBoxFail = ref<boolean>(false)
 const successText = ref<string>('验证通过！')

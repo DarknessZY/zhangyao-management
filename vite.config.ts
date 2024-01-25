@@ -46,7 +46,7 @@ export default defineConfig({
      proxy: {
        // 选项写法
        '/api': {
-         target: '',//请求的服务器的地址
+         target: 'http://zyao.yaoyaoqiekenao.com/api',//请求的服务器的地址
          changeOrigin: true,
          rewrite: path => path.replace(/^\/api/, '')
        }

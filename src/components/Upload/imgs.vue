@@ -165,7 +165,7 @@ const handleRemove = (file: UploadFile) => {
 const uploadError = () => {
   ElNotification({
     title: "温馨提示",
-    message: "图片上传失败，请您重新上传！",
+    message: "多图片上传接口暂未完善，请您体验单图片上传！",
     type: "error"
   });
 };

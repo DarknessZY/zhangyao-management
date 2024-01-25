@@ -1,6 +1,6 @@
 <template>
   <div class="upload-box">
-    <el-upload :id="uuid" action="#" :class="['upload', self_disabled ? 'disabled' : '', drag ? 'no-border' : '']"
+    <el-upload :id="uuid" action="*" :class="['upload', self_disabled ? 'disabled' : '', drag ? 'no-border' : '']"
       :multiple="false" :disabled="self_disabled" :show-file-list="false" :http-request="handleHttpUpload"
       :before-upload="beforeUpload" :on-success="uploadSuccess" :on-error="uploadError" :drag="drag"
       :accept="fileType.join(',')">
@@ -48,11 +48,12 @@
 <script setup lang="ts" name="UploadImg">
 import { ref, computed, inject } from "vue";
 import { generateUUID } from "@/utils/util";
-// import { uploadImg } from "@/api/modules/upload";
+import { upLoadImg } from "@/service/moudles/upload/upload";
 import { ElNotification, formContextKey, formItemContextKey } from "element-plus";
 import type { UploadProps, UploadRequestOptions } from "element-plus";
 
 interface UploadFileProps {
+
   imageUrl: string; // 图片地址 ==> 必传
   api?: (params: any) => Promise<any>; // 上传图片的 api 方法，一般项目上传都是同一个 api 方法，在组件里直接引入即可 ==> 非必传
   drag?: boolean; // 是否支持拖拽上传 ==> 非必传（默认为 true）
@@ -73,7 +74,7 @@ const props = withDefaults(defineProps<UploadFileProps>(), {
   fileType: () => ["image/jpeg", "image/png", "image/gif"],
   height: "150px",
   width: "150px",
-  borderRadius: "8px"
+  borderRadius: "8px",
 });
 
 // 生成组件唯一id
@@ -101,9 +102,9 @@ const handleHttpUpload = async (options: UploadRequestOptions) => {
   let formData = new FormData();
   formData.append("file", options.file);
   try {
-    const api: any = props.api;
+    const api = props.api ?? upLoadImg
     const { data } = await api(formData);
-    emit("update:imageUrl", data.fileUrl);
+    emit("update:imageUrl", data.imgurl);
     // 调用 el-form 内部的校验方法（可自动校验）
     formItemContext?.prop && formContext?.validateField([formItemContext.prop as string]);
   } catch (error) {

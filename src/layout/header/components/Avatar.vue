@@ -19,10 +19,10 @@ import { ref } from "vue";
 import PasswordDialog from "./PasswordDialog.vue";
 import { ElMessageBox, ElMessage } from "element-plus";
 import { useRouter } from "vue-router";
-// import { GlobalStore } from "@/store";
+import { GlobalStore } from "@/store";
 
 const router = useRouter();
-// const globalStore = GlobalStore();
+const globalStore = GlobalStore();
 
 // 退出登录
 const logout = () => {
@@ -31,9 +31,9 @@ const logout = () => {
 		cancelButtonText: "取消",
 		type: "warning"
 	}).then(() => {
-		router.push('/');
-        //清空
-		// globalStore.setToken("");
+		router.replace('/');
+		//清空
+		globalStore.setToken("");
 		ElMessage({
 			type: "success",
 			message: "退出登录成功！"

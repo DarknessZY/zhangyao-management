@@ -43,8 +43,8 @@ import eyeCloseImg from "@/assets/images/eye-close.png";
 import eyeOpenImg from "@/assets/images/eye-open.png";
 
 const form = reactive({
-  userName: "",
-  passWord: "",
+  userName: "root",
+  passWord: "123456",
 });
 const errInfo = ref("");
 const passwordInput: any = ref(null)

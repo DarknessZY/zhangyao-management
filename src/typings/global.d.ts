@@ -146,7 +146,6 @@ declare namespace File {
 }
 // * Vite
 declare type Recordable<T = any> = Record<string, T>;
-
 declare interface ViteEnv {
 	VITE_API_URL: string;
 	VITE_PORT: number;
@@ -157,3 +156,5 @@ declare interface ViteEnv {
 	VITE_BUILD_GZIP: boolean;
 	VITE_REPORT: boolean;
 }
+
+declare module 'element-plus/dist/locale/zh-cn.mjs'

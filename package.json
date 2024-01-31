@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vue-tsc --noEmit && vite build",
+    "build": "vite build",
+    "build:prod": "vite build --mode prod",
     "preview": "vite preview"
   },
   "dependencies": {
@@ -22,11 +23,11 @@
     "pinia-plugin-persist": "^1.0.0",
     "sass": "^1.54.5",
     "sass-loader": "^13.0.2",
-    "vue": "^3.2.37",
+    "vite": "^4.4.9",
+    "vue": "^3.4.15",
     "vue-router": "4",
     "vue3-print-nb": "^0.1.4",
-    "xlsx": "^0.18.5",
-    "yarn": "^1.22.19"
+    "xlsx": "^0.18.5"
   },
   "devDependencies": {
     "@types/nprogress": "^0.2.0",
@@ -43,7 +44,6 @@
     "unplugin-auto-import": "^0.11.2",
     "unplugin-element-plus": "^0.4.1",
     "unplugin-vue-components": "^0.22.4",
-    "vite": "^3.0.7",
-    "vue-tsc": "^0.39.5"
+    "vite-plugin-imagemin": "^0.6.1"
   }
 }

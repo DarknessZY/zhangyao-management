@@ -2,14 +2,8 @@
 	<div class="tabs-box">
 		<div class="tabs-menu">
 			<el-tabs v-model="tabsMenuValue" type="card" @tab-click="tabClick" @tab-remove="removeTab">
-				<el-tab-pane
-					v-for="item in tabsMenuList"
-					:key="item.path"
-					:path="item.path"
-					:label="item.title"
-					:name="item.path"
-					:closable="item.close"
-				>
+				<el-tab-pane v-for="item in tabsMenuList" :key="item.path" :path="item.path" :label="item.title" :name="item.path"
+					:closable="item.close">
 					<template #label>
 						<el-icon class="tabs-icon" v-if="item.icon">
 							<component :is="item.icon"></component>
@@ -25,7 +19,7 @@
 
 <script setup lang="ts">
 import { computed, watch } from "vue";
-import { useRoute, useRouter } from "vue-router"; 
+import { useRoute, useRouter } from "vue-router";
 import { TabsStore } from "@/store/modules/tabs";
 import { TabsPaneContext } from "element-plus";
 import MoreButton from "./components/MoreButton.vue";
@@ -47,7 +41,7 @@ const router = useRouter();
 watch(
 	() => route.path,
 	() => {
-		let params:any = {
+		let params: any = {
 			title: route.meta.title as string,
 			path: route.path,
 			close: true
@@ -66,7 +60,7 @@ const tabClick = (tabItem: TabsPaneContext) => {
 };
 
 // Remove Tab  删除浏览路由记录
-const removeTab = (activeTabPath: string) => {
+const removeTab = (activeTabPath: any) => {
 	tabStore.removeTabs(activeTabPath);
 };
 </script>

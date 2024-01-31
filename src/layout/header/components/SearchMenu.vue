@@ -1,23 +1,17 @@
 <template>
-    <!-- 菜单搜索 -->
-    <div class="layout-search-dialog">
-        <el-tooltip effect="dark" content="菜单搜索" placement="bottom">
-            <el-icon  @click="handleOpen" class="icon-style" >
-            <component :is="Search"></component>
-        </el-icon>
+	<!-- 菜单搜索 -->
+	<div class="layout-search-dialog">
+		<el-tooltip effect="dark" content="菜单搜索" placement="bottom">
+			<el-icon @click="handleOpen" class="icon-style">
+				<component :is="Search"></component>
+			</el-icon>
 		</el-tooltip>
-        <el-dialog v-model="isShowSearch" width="300px"  :modal="false" :show-close="false" fullscreen  destroy-on-close>
-            <el-autocomplete
-				v-model="searchMenu"
-				:fetch-suggestions="searchMenuList"
-				ref="menuInputRef"
-				placeholder="菜单搜索 ：支持菜单名称、路径"
-				@select="handleClickMenu"
-				@blur="closeSearch"
-			>
+		<el-dialog v-model="isShowSearch" width="300px" :modal="false" :show-close="false" fullscreen destroy-on-close>
+			<el-autocomplete v-model="searchMenu" :fetch-suggestions="searchMenuList" ref="menuInputRef"
+				placeholder="菜单搜索 ：支持菜单名称、路径" @select="handleClickMenu" @blur="closeSearch">
 				<template #prefix>
 					<el-icon>
-						<Search />	
+						<Search />
 					</el-icon>
 				</template>
 				<template #default="{ item }">
@@ -27,13 +21,13 @@
 					<span> {{ item.title }} </span>
 				</template>
 			</el-autocomplete>
-        </el-dialog>
-    </div>
+		</el-dialog>
+	</div>
 </template>
 
 <script setup lang="ts">
 import { Search } from "@element-plus/icons-vue";
-import {ref, computed , nextTick} from "vue"
+import { ref, computed, nextTick } from "vue"
 import { getFlatArr } from "@/utils/util";//扁平化数组
 import { useRouter } from "vue-router";
 import { MenuStore } from "@/store/modules/menu";
@@ -60,7 +54,7 @@ const handleOpen = () => {
 
 // 筛选菜单
 const filterNodeMethod = (queryString: string) => {
-	return (restaurant: Menu.MenuOptions) => {
+	return (restaurant: any) => {
 		return (
 			restaurant.path.toLowerCase().indexOf(queryString.toLowerCase()) > -1 ||
 			restaurant.title.toLowerCase().indexOf(queryString.toLowerCase()) > -1
@@ -68,7 +62,7 @@ const filterNodeMethod = (queryString: string) => {
 	};
 };
 // 点击菜单跳转
-const handleClickMenu = (menuItem: Menu.MenuOptions) => {
+const handleClickMenu = (menuItem: any) => {
 	searchMenu.value = "";
 	if (menuItem.isLink) window.open(menuItem.isLink, "_blank");
 	router.push(menuItem.path);

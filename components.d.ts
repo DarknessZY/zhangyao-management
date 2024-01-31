@@ -35,7 +35,6 @@ declare module '@vue/runtime-core' {
     ElMenuItem: typeof import('element-plus/es')['ElMenuItem']
     ElOption: typeof import('element-plus/es')['ElOption']
     ElPagination: typeof import('element-plus/es')['ElPagination']
-    ElPopover: typeof import('element-plus/es')['ElPopover']
     ElScrollbar: typeof import('element-plus/es')['ElScrollbar']
     ElSelect: typeof import('element-plus/es')['ElSelect']
     ElSubMenu: typeof import('element-plus/es')['ElSubMenu']
@@ -56,7 +55,6 @@ declare module '@vue/runtime-core' {
     SearchForm: typeof import('./src/components/SearchForm/index.vue')['default']
     SearchFormItem: typeof import('./src/components/SearchForm/components/SearchFormItem.vue')['default']
     SvgIcon: typeof import('./src/components/SvgIcon/index.vue')['default']
-    Upload: typeof import('./src/components/Upload/index.vue')['default']
   }
   export interface ComponentCustomProperties {
     vLoading: typeof import('element-plus/es')['ElLoadingDirective']

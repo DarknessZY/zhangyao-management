@@ -7,6 +7,7 @@ import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 import ElementPlus from 'unplugin-element-plus/vite'
 import { svgBuilder } from './src/plugins/svgBuilder';
 import vueJsx from '@vitejs/plugin-vue-jsx';
+import viteImagemin from 'vite-plugin-imagemin'
 const resolve = (dir: string) => path.join(__dirname, dir)
 
 // https://vitejs.dev/config/
@@ -23,8 +24,40 @@ export default defineConfig({
     Components({
       resolvers: [ElementPlusResolver()],
     }),
-    ElementPlus()
+    ElementPlus(),
+    // 图片资源压缩
+    viteImagemin({
+      gifsicle: {
+        optimizationLevel: 7,
+        interlaced: false
+      },
+      optipng: {
+        optimizationLevel: 7
+      },
+      mozjpeg: {
+        quality: 20
+      },
+      pngquant: {
+        quality: [0.8, 0.9],
+        speed: 4
+      },
+      svgo: {
+        plugins: [
+          {
+            name: 'removeViewBox'
+          },
+          {
+            name: 'removeEmptyAttrs',
+            active: false
+          }
+        ]
+      }
+    })
   ],
+  esbuild:{
+    pure: ['console.log'], // 删除 console.log
+    drop: ['debugger'], // 删除 debugger
+  },
 	resolve: {
 		alias: {
 			'@': resolve('src'),

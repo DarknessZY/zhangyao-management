@@ -65,9 +65,13 @@ watch(
   }
 )
 // eslint-disable-next-line
-watch(props.contentInfoParams, newVal => {
-  Object.assign(contentInfo, newVal)
-})
+watch(
+  () => props.contentInfoParams,
+  newVal => {
+    if (newVal) {
+      Object.assign(contentInfo, newVal)
+    }
+  })
 
 onMounted(() => {
   // 监听鼠标按下拖动滑块时的移动，用于计算滑块移动距离

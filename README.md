@@ -14,8 +14,6 @@ vue-element-admin 是一个后台前端解决方案，它基于vuu2 和 element 
     3.https://juejin.cn/user/3456520289517608/posts
  el-table的二次封装借鉴了：
     1.https://juejin.cn/post/7114572243518095373 
-    刚毕业，会的技术和开发经验也不多，主要依葫芦画瓢，有很多不懂得地方就没做，所以看起来东西很少，后面慢慢学吧
-image.png
 ```
 
 <br/>

@@ -64,6 +64,7 @@ router.beforeEach((to, from, next) => {
     next()
   } else if (!token) {
     console.log('!token');
+    next({path: '/login'})
   } else if (to.path == '/' || to.path == '') {
     next({path: '/'})
   } else if (menuList) {

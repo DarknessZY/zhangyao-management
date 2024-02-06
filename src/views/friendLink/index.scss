@@ -1,0 +1,47 @@
+.content {
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+.friend-link {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  background-color: #e6f2fa;
+  border-radius: 8px;
+  padding: 10px 20px;
+  margin: 20px;
+  transition: background-color 0.3s ease;
+  height: 70px;
+}
+
+.friend-link:hover {
+  background-color: #daecf8;
+}
+
+.friend-link__link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #333;
+}
+
+
+.friend-link__content {
+  display: flex;
+  align-items: center;
+}
+
+.friend-link__image {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  margin-right: 15px;
+}
+
+.friend-link__name {
+  font-size: 16px;
+  font-weight: bold;
+}

@@ -17,11 +17,6 @@
 					"icon": "menu"
 				},
 				{
-					"path": "/dataShow/threeJsShow",
-					"title": "threeJS使用",
-					"icon": "menu"
-				},
-				{
 					"path": "/dataShow/tableUse",
 					"title": "表格使用以及封装",
 					"icon": "menu"
@@ -44,6 +39,11 @@
 					"icon": "menu"
 				}
 			]
+		},
+		{
+			"icon": "link",
+			"title": "友情链接",
+			"path": "/friendLink"
 		}
 	],
 	"msg": "成功"

@@ -27,7 +27,7 @@ const dataShow: Array<RouteRecordRaw> = [
 				meta: {
 					keepAlive: false,
 					requiresAuth: true,
-					title: "角色权限",
+					title: "菜单权限",
 					key: "permissions"
 				}
 			},
@@ -38,7 +38,7 @@ const dataShow: Array<RouteRecordRaw> = [
 				meta: {
 					keepAlive: false,
 					requiresAuth: true,
-					title: "角色权限",
+					title: "用户权限",
 					key: "permissions"
 				}
 			}

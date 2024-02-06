@@ -31,17 +31,6 @@ const dataShow: Array<RouteRecordRaw> = [
 					key: "dataShow"
 				}
 			},
-			{
-				path: "/dataShow/threeJsShow",
-				name: "threeJsShow",
-				component: () => import("@/views/dataShow/threeJsShow/index.vue"),
-				meta: {
-					keepAlive: false,
-					requiresAuth: true,
-					title: "threeJS使用",
-					key: "dataShow"
-				}
-			}
 		]
 	}
 ];

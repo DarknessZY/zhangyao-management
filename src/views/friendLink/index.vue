@@ -20,7 +20,7 @@ const friendList = ref([
   },
   {
     name: ' DarknessZY',
-    url: 'hhttps://juejin.cn/user/1781681116679854/columns/',
+    url: 'https://github.com/DarknessZY',
     imageUrl: 'https://yaoyaoqiekenao.com/images/github.png',
   },
   {

@@ -37,11 +37,6 @@ const routes: RouteRecordRaw[] = [
     component: () => import('@/views/login/login.vue'),
     meta: { title: '登录', icon: '', parent: { name: '' } }
   },
-  // {
-  //   path: '/layout',
-  //   name: 'Layout',
-  //   component: () => import('@/layout/index.vue'),
-  // },
   ...routerArray,
 ]
 
@@ -64,7 +59,7 @@ router.beforeEach((to, from, next) => {
     next()
   } else if (!token) {
     console.log('!token');
-    next({path: '/login'})
+    next({path: '/'})
   } else if (to.path == '/' || to.path == '') {
     next({path: '/'})
   } else if (menuList) {

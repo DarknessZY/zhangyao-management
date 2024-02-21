@@ -37,6 +37,11 @@
 					"path": "/comp/upload",
 					"title": "图片上传",
 					"icon": "menu"
+				},
+				{
+					"path": "/comp/chatRoom",
+					"title": "简易聊天室",
+					"icon": "menu"
 				}
 			]
 		},

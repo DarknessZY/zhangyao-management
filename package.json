@@ -23,6 +23,7 @@
     "pinia-plugin-persist": "^1.0.0",
     "sass": "^1.54.5",
     "sass-loader": "^13.0.2",
+    "socket.io-client": "^4.7.4",
     "vite": "^4.4.9",
     "vue": "^3.4.15",
     "vue-router": "4",

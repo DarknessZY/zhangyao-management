@@ -31,6 +31,17 @@ const dataShow: Array<RouteRecordRaw> = [
 					key: "comp"
 				}
 			},
+			{
+				path: "/comp/chatRoom",
+				name: "chatRoom",
+				component: () => import("@/views/comp/chatRoom/index.vue"),
+				meta: {
+					keepAlive: false,
+					requiresAuth: true,
+					title: "简易聊天室",
+					key: "comp"
+				}
+			},
 		]
 	}
 ];

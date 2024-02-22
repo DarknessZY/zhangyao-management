@@ -1,14 +1,18 @@
 <template>
   <div class="chat-container">
-    <ElButton>退出房间</ElButton>
+    <ElButton @click="leave">退出房间</ElButton>
     <p class="tc title">{{ connected ? `房间号：${state.roomId}` : '加入房间失败' }}</p>
+    <p class="tc title">{{ `当前房间在线人数：${onlineUser}` }}</p>
     <div class="message">
       <div :class="{
-        'center': item.type === 'join',
-        'item': item.type !== 'join',
-        'item1': item.name !== state.name && item.type !== 'join',
+        'center': item.type === 'join' || item.type === 'leave',
+        'item': item.type !== 'join' && item.type !== 'leave',
+        'item1': item.name !== state.name && item.type !== 'join' && item.type !== 'leave',
       }" v-for="(item, index) in receivedMessages" :key="index">
         <p class="join" v-if="item.type === 'join'">
+          {{ item.message }}
+        </p>
+        <p class="leave" v-if="item.type === 'leave'">
           {{ item.message }}
         </p>
         <p class="msg">
@@ -17,9 +21,6 @@
         <div class="user">
           <div class="user">{{ item.name }}</div>
         </div>
-      </div>
-      <div v-if="showTitle">
-        <p class="title">{{ showTitle }}</p>
       </div>
     </div>
     <div v-if="connected">
@@ -30,53 +31,85 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, onMounted } from 'vue';
 import { ElButton } from 'element-plus'
 import { socket } from './socket'
 
 const props: any = defineProps(['state'])
 const emit = defineEmits(['changeRoom'])
-const connected = ref(false);
-const showTitle = ref('')
-const message = ref('');
-const receivedMessages: any = ref([]);
-
+const connected = ref(false);  // 是否成功链接到socket.io
+const message = ref(''); // 发送的消息
+const receivedMessages: any = ref([]); // 接受所有消息的集合
+const onlineUser = ref<number>(0); // 当前房间的人数
+/**
+ * 创建或加入房间
+ */
+const createOrJoinRoom = () => {
+  socket.emit("join", { roomId: props.state.roomId, name: props.state.name });
+}
+/**
+ * 发送消息
+ */
 const sendMessage = () => {
   socket.emit('newMessage', { message: message.value, roomId: props.state.roomId, name: props.state.name, });
+  message.value = '';
 };
+/**
+ * 获取当前房间的人数
+ */
+const getOnlineUser = () => {
+  socket.emit('getRoomUsers', { roomId: props.state.roomId });
 
+}
+/**
+ * 退出房间
+ */
+const leave = () => {
+  socket.emit('leave', { roomId: props.state.roomId, name: props.state.name });
+  getOnlineUser()
+  emit('changeRoom', { roomId: '', name: '' });
+}
+/**
+ * 初始时 创建或加入房间 并监听消息
+ */
 onMounted(() => {
-  socket.emit("join", { roomId: props.state.roomId, name: props.state.name });
+  createOrJoinRoom()
+  getOnlineUser()
   socket.on('join', (e) => {
-    console.log('我是什么', e);
     connected.value = true;
     const arr = { message: e, type: 'join' };
     receivedMessages.value.push(arr);
   });
+  socket.on('leave', (e) => {
+    const arr = { message: e, type: 'leave' };
+    receivedMessages.value.push(arr);
+  })
   socket.on('newMessage', (e) => {
     receivedMessages.value.push(e)
   });
+  socket.on('getRoomUsers', (e) => {
+    onlineUser.value = e
+  })
 });
 </script>
 
 
 <style scoped lang="scss">
 .chat-container {
-  max-width: 45vw;
+  width: 45vw;
   margin: 0 auto;
   padding: 1vw;
   height: 100%;
 
   .title {
     font-size: 20px;
-    font-weight: 900;
+    font-weight: 600;
   }
 }
 
 .message-input {
   width: 100%;
   display: block;
-  min-height: 15vh;
+  min-height: 10vh;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -85,7 +118,7 @@ onMounted(() => {
 
 .message {
   overflow-y: auto;
-  height: 350px;
+  height: 40vh;
   margin-top: 2vh;
   padding: 10px;
   border: 1px solid #ccc;
@@ -97,10 +130,15 @@ onMounted(() => {
   align-items: center;
   justify-content: center;
   font-size: 12px;
-  color: red;
 
   .join {
-    max-width: 60vw;
+    max-width: 45vw;
+    color: rgb(121, 216, 233);
+  }
+
+  .leave {
+    max-width: 45vw;
+    color: rgb(255, 123, 0);
   }
 }
 

@@ -1,6 +1,6 @@
 <template>
 	<el-breadcrumb :separator-icon="ArrowRight">
-		<transition-group name="breadcrumb" mode="out-in">
+		<transition-group name="breadcrumb">
 			<el-breadcrumb-item :to="{ path: HOME_URL }" key="/home">首页</el-breadcrumb-item>
 			<el-breadcrumb-item v-for="item in matched" :key="item.path" :to="{ path: item.path }">
 				{{ item.meta.title }}
@@ -16,5 +16,5 @@ import { ArrowRight } from "@element-plus/icons-vue";
 import { HOME_URL } from "@/config/config";
 const route = useRoute();
 
-const matched = computed(() => route.matched.filter(item =>item.meta && item.meta.title && item.meta.title !== "首页"));
+const matched = computed(() => route.matched.filter(item => item.meta && item.meta.title && item.meta.title !== "首页"));
 </script>

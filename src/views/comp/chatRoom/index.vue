@@ -1,6 +1,8 @@
 <template>
-  <CreateChat v-if="!state.roomId" @changeRoom="changeRoom"></CreateChat>
-  <room v-else :state="state" @changeRoom="changeRoom"></room>
+  <div class="chatRoom content-box">
+    <CreateChat v-if="!state.roomId" @changeRoom="changeRoom"></CreateChat>
+    <room v-else :state="state" @changeRoom="changeRoom"></room>
+  </div>
 </template>
 
 <script lang="ts" setup>
@@ -14,9 +16,13 @@ const state = reactive({
   type: ''
 })
 const changeRoom = (newInfo: any) => {
-  // roomId.value =  num
   state.name = newInfo.name
   state.roomId = newInfo.roomId
   state.type = newInfo.type
 }
 </script>
+<style lang="scss" scoped>
+.chatRoom {
+  height: auto;
+}
+</style>

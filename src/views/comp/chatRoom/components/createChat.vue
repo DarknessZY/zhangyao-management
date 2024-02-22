@@ -1,17 +1,19 @@
 // CreateChat.vue
 <template>
-  <ElButton type="primary" @click="newRoom('create')">{{ title.create }}</ElButton>
-  <ElButton @click="newRoom('join')">{{ title.join }}</ElButton>
+  <div>
+    <ElButton type="primary" @click="newRoom('create')">{{ title.create }}</ElButton>
+    <ElButton @click="newRoom('join')">{{ title.join }}</ElButton>
 
-  <ElDialog class="chat-room" v-model="state.roomShow" :title="title[state.type]">
-    <ElInput v-model.trim="state.room" @keyup.enter="handleOk" placeholder="请输入4位数字房间号" />
-    <ElInput style="margin-top: 2vh; display: block;" v-model.trim="state.name" @keyup.enter="handleOk"
-      placeholder="请输入姓名" />
-    <div class="button">
-      <ElButton type="primary" @click="handleOk"> 确定 </ElButton>
-      <ElButton>取消</ElButton>
-    </div>
-  </ElDialog>
+    <ElDialog v-model="state.roomShow" :title="title[state.type]" width="22%">
+      <ElInput v-model.trim="state.room" @keyup.enter="handleOk" placeholder="请输入4位数字房间号" />
+      <ElInput style="margin-top: 2vh; display: block;" v-model.trim="state.name" @keyup.enter="handleOk"
+        placeholder="请输入姓名" />
+      <div class="button">
+        <ElButton type="primary" @click="handleOk"> 确定 </ElButton>
+        <ElButton @click="close">取消</ElButton>
+      </div>
+    </ElDialog>
+  </div>
 </template>
 <script lang="ts" setup>
 type DataType = {
@@ -41,10 +43,10 @@ const state: DataType = reactive({
   socket: null,
   type: ''
 });
-const title = {
+const title = ref<any>({
   create: '创建房间',
   join: '加入房间'
-}
+})
 
 const newRoom = (type: string) => {
   state.roomShow = true;
@@ -64,20 +66,12 @@ const handleOk = () => {
   state.roomShow = false;
   emit('changeRoom', { name: state.name, roomId: state.room, type: state.type })
 }
-
+const close = () => {
+  state.roomShow = false;
+}
 </script>
   
 <style scoped lang="scss">
-.chat-room {
-  max-width: 200px;
-  margin: 0 auto;
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
-}
-
-
 .el-input {
   width: 100%;
   padding: 10px;

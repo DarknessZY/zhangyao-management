@@ -1,4 +1,4 @@
-# Vuejs3.2+Vite2+ElementPlus后台管理系统模板
+# Vuejs3+Vite+ElementPlus后台管理系统模板
 
 ## 简介
 

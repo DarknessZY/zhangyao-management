@@ -20,6 +20,11 @@
 					"path": "/dataShow/tableUse",
 					"title": "表格使用以及封装",
 					"icon": "menu"
+				},
+				{
+					"path": "/dataShow/otherPages",
+					"title": "其他页面",
+					"icon": "menu"
 				}
 			]
 		},

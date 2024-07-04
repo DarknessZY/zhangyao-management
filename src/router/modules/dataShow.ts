@@ -31,6 +31,17 @@ const dataShow: Array<RouteRecordRaw> = [
 					key: "dataShow"
 				}
 			},
+			{
+				path: "/dataShow/otherPages",
+				name: "otherPages",
+				component: () => import("@/views/dataShow/otherPages/index.vue"),
+				meta: {
+					keepAlive: false,
+					requiresAuth: true,
+					title: "其他页面",
+					key: "otherPages"
+				}
+			},
 		]
 	}
 ];

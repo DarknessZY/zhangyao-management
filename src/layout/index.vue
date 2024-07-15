@@ -1,5 +1,5 @@
 <template>
-   <el-container>
+	<el-container>
 		<el-aside>
 			<Menu />
 		</el-aside>
@@ -18,7 +18,7 @@
 				</router-view>
 			</el-main>
 			<el-footer>
-                <Footer />
+				<Footer />
 			</el-footer>
 		</el-container>
 	</el-container>
@@ -26,12 +26,12 @@
 
 <script setup lang="ts">
 import Footer from "./footer/index.vue";
-import Menu from "./Menu/index.vue";
+import Menu from "./menu/index.vue";
 import Header from './header/index.vue'
 import cacheRouter from "@/router/cacheRouter";
 import Tabs from "./tabs/index.vue";
 </script>
 
 <style lang="scss" scoped>
-    @import "./index.scss";
+@import "./index.scss";
 </style>
